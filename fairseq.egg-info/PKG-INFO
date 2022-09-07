@@ -1,0 +1,67 @@
+Metadata-Version: 2.1
+Name: fairseq
+Version: 0.9.0
+Summary: Facebook AI Research Sequence-to-Sequence Toolkit
+Home-page: https://github.com/pytorch/fairseq
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+1. create data set
+bash create_iwslt_data.sh de en 14
+bash create_iwslt_data.sh zh en 14
+
+2. prepare multilingual data
+bash prepare_multilingual_data.sh de,zh en iwslt 14
+
+3. preprocess multilingual data
+bash preprocess_multi.sh de zh en 14
+
+
+4. train the model
+bash train_multilingual.sh de zh en 14 0.2 8000
+bash train_multilingual.sh de en 14 0.2 8000
+
+5. evaluate
+bash evaluate_src1.sh multilingual de zh en 14 0.2 valid avg_50k
+bash evaluate_src2.sh multilingual de zh en 14 0.2 valid avg_50k
+
+6. score
+bash score.sh multilingual de zh en 14 0.2 valid avg_50k de 
+bash score.sh multilingual de zh en 14 0.2 valid avg_50k zh 
+
+
+7. build dictionary
+python build_dict.py -s de,zh -t en -d iwslt -y 14
+
+
+
+
+1. create data set
+bash create_iwslt_data.sh de en 14
+bash create_iwslt_data.sh de en 14
+
+2. prepare multilingual data
+bash prepare_multilingual_data.sh de,de en iwslt 14
+
+7. build dictionary
+python build_dict.py -s de,de -t en -d iwslt -y 14
+
+3. preprocess multilingual data
+bash preprocess_multi.sh de de en 14
+
+
+4. train the model
+bash train_multilingual.sh de de en 14 0.2 8000
+
+5. evaluate
+bash evaluate_src1.sh multilingual de zh en 14 0.2 test avg_50k
+bash evaluate_src2.sh multilingual de zh en 14 0.2 test avg_50k
+
+6. score
+bash score.sh multilingual de zh en 14 0.2 test avg_50k de 
+bash score.sh multilingual de zh en 14 0.2 test avg_50k zh
+
