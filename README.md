@@ -133,8 +133,18 @@ bash run_finetune_endanger.sh
 If you extend or use this work, please cite the [paper][paper] where it was
 introduced:
 
-```
+@inproceedings{zhang-xu-2022-byte,
+    title = "Byte-based Multilingual {NMT} for Endangered Languages",
+    author = "Zhang, Mengjiao  and
+      Xu, Jia",
+    booktitle = "Proceedings of the 29th International Conference on Computational Linguistics",
+    month = oct,
+    year = "2022",
+    address = "Gyeongju, Republic of Korea",
+    publisher = "International Committee on Computational Linguistics",
+    url = "https://aclanthology.org/2022.coling-1.388",
+    pages = "4407--4417",
+    abstract = "Multilingual neural machine translation (MNMT) jointly trains a shared model for translation with multiple language pairs. However, traditional subword-based MNMT approaches suffer from out-of-vocabulary (OOV) issues and representation bottleneck, which often degrades translation performance on certain language pairs. While byte tokenization is used to tackle the OOV problems in neural machine translation (NMT), until now its capability has not been validated in MNMT. Additionally, existing work has not studied how byte encoding can benefit endangered language translation to our knowledge. We propose a byte-based multilingual neural machine translation system (BMNMT) to alleviate the representation bottleneck and improve translation performance in endangered languages. Furthermore, we design a random byte mapping method with an ensemble prediction to enhance our model robustness. Experimental results show that our BMNMT consistently and significantly outperforms subword/word-based baselines on twelve language pairs up to +18.5 BLEU points, an 840{\%} relative improvement.",
+}
 
-```
-
-[paper]: ..
+[paper]: https://aclanthology.org/2022.coling-1.388.pdf
